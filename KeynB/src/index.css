@@ -1,0 +1,124 @@
+/* Global Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html, :root {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+/* Color scheme| 60, 30, 10 rule | Light and Dark Modes */
+:root {
+  /* Light */
+
+  /* Dark */
+
+  /* Neutral colors. */
+  --black-eerie: rgb(31, 31, 30);
+  --black-night: rgb(10, 10, 10);
+  --black-smoky: rgb(14, 17, 3);
+  --black-gunmetal: rgb(36, 41, 45);
+  --gray-jet: rgb(41, 41, 41);
+  --gray-onyx: rgb(61, 61, 61);
+  --gray-charcoal: rgb(64, 71, 79);
+  --white-timberwolf: rgb(215, 215, 213);
+  --white-anti-flash: rgb(235, 235, 235);
+  --white-platinum: rgb(210, 214, 218);
+  --white-smoke: rgb(245, 245, 245);
+  --white-platinum-light: rgb(224, 224, 224);
+
+
+  /* ==================================------------------=================================== */
+  /* Spacing (All spacing is the same right now. Might adjust later) */
+  /* Margins */
+  --marg-xs: 0.25rem;
+  --marg-s: 0.5rem;
+  --marg-m: 1rem;
+  --marg-l: 1.5rem;
+  --marg-xl: 3rem;
+/* Padding */
+  --pad-xs: 0.25rem;
+  --pad-s: 0.5rem;
+  --pad-m: 1rem;
+  --pad-l: 1.5rem;
+  --pad-xl: 3rem;
+/* Gap */
+  --gap-xs: 0.25rem;
+  --gap-s: 0.5rem;
+  --gap-m: 1rem;
+  --gap-l: 1.5rem;
+  --gap-xl: 3rem;
+  /* ==================================================--=================================== */
+/* Box Shadows */
+  --bs-light: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --bs-l-sharp: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --bs-med: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --bs-high: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  --bs-m-round: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* Typography */
+h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h2 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h4 {
+  font-size: 2.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h5 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+h6 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+p {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+a {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+li {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+ul {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
