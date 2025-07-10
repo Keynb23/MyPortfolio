@@ -6,16 +6,21 @@
 }
 
 body, html, :root {
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   /* font-family: 'poppins', 'sans-serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-
   /* Default colors (Light Mode by default, or if system is light) */
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+
+html, body, #root {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 
 /* Color scheme| 60, 30, 10 rule | Light and Dark Modes */
 :root {

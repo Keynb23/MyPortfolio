@@ -1,25 +1,25 @@
-import { xpCards as XpCards } from "./components/xpCards";
-import { Hobbies } from "./Components/Hobbies";
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
+import XpCards from './Components/xpCards';
+import Projects from './Components/Projects';
+import Edu from './Components/Edu';
+import Hobbies from './Components/Hobbies';
+import Footer from './components/Footer';
 
-
-const App = () => {
-    return (
-        <>
-        <h1>Key'n Brosdahl</h1>
-        <h2>Software Engineer</h2>
-        <h3>Front End Developer</h3>
-        <h4>UX/UI Designer</h4>
-        <h5>Game Dev</h5>
-
+function App() {
+  return (
+    <div className="app-container">
+      <Navbar />
+      <main className="main-content">
+        <Hero />
         <XpCards />
-
-        <h6>Stay New</h6>
-        <p>Hi, welcome. you know, words words filler words. type shit</p>
-        <ul>NavLinks</ul>
-        <li>Also navlinks</li>
-        <Hobbies/>
-        </>
-    )
+        <Projects />
+        <Edu />
+        <Hobbies />
+      </main>
+        <Footer/>
+    </div>
+  );
 }
 
 export default App;
