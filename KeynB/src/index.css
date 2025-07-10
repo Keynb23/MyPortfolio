@@ -9,27 +9,43 @@ body, html, :root {
   min-height: 100vh;
   height: 100%;
   width: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* font-family: 'poppins', 'sans-serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+
+  /* Default colors (Light Mode by default, or if system is light) */
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Color scheme| 60, 30, 10 rule | Light and Dark Modes */
 :root {
-  /* Light */
+  /* Neutral colors. (Your base palette) */
+  --b-eerie: rgb(31, 31, 30);
+  --b-night: rgb(10, 10, 10);
+  --b-smoky: rgb(14, 17, 3);
+  --b-gm: rgb(36, 41, 45);
+  --g-jet: rgb(41, 41, 41);
+  --g-onyx: rgb(61, 61, 61);
+  --g-coal: rgb(64, 71, 79);
+  --w-twolf: rgb(215, 215, 213);
+  --w-flash: rgb(235, 235, 235);
+  --w-plat: rgb(210, 214, 218);
+  --w-smoke: rgb(245, 245, 245);
+  --w-light: rgb(224, 224, 224);
 
-  /* Dark */
-
-  /* Neutral colors. */
-  --black-eerie: rgb(31, 31, 30);
-  --black-night: rgb(10, 10, 10);
-  --black-smoky: rgb(14, 17, 3);
-  --black-gunmetal: rgb(36, 41, 45);
-  --gray-jet: rgb(41, 41, 41);
-  --gray-onyx: rgb(61, 61, 61);
-  --gray-charcoal: rgb(64, 71, 79);
-  --white-timberwolf: rgb(215, 215, 213);
-  --white-anti-flash: rgb(235, 235, 235);
-  --white-platinum: rgb(210, 214, 218);
-  --white-smoke: rgb(245, 245, 245);
-  --white-platinum-light: rgb(224, 224, 224);
+  /* Light Mode Colors (Applied by default or via data-theme="light") */
+  --bg-color: var(--w-smoke); /* Example light background */
+  --text-color: var(--b-night); /* Example dark text */
+  --h1-color: var(--b-night);
+  --h2-color: var(--b-night);
+  --h3-color: var(--b-night);
+  --h4-color: var(--b-night);
+  --h5-color: var(--b-night);
+  --h6-color: var(--b-night);
+  --p-color: var(--g-onyx);
+  --a-color: var(--b-gm);
+  --li-color: var(--g-coal);
+  --ul-color: var(--g-coal);
 
 
   /* ==================================------------------=================================== */
@@ -61,64 +77,124 @@ body, html, :root {
   --bs-m-round: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+/* Dark Mode Colors (Applied if system prefers dark, or via data-theme="dark") */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: var(--g-jet); /* Your original dark background */
+    --text-color: var(--w-flash); /* Your original dark text */
+    --h1-color: var(--w-smoke);
+    --h2-color: var(--w-flash);
+    --h3-color: var(--w-twolf);
+    --h4-color: var(--w-plat);
+    --h5-color: var(--w-twolf);
+    --h6-color: var(--w-twolf);
+    --p-color: var(--w-light);
+    --a-color: var(--w-twolf);
+    --li-color: var(--w-twolf);
+    --ul-color: var(--w-twolf);
+  }
+}
+
+/* Manual Theme Toggle Overrides */
+html[data-theme="light"] {
+  --bg-color: var(--w-smoke);
+  --text-color: var(--b-night);
+  --h1-color: var(--b-night);
+  --h2-color: var(--b-night);
+  --h3-color: var(--b-night);
+  --h4-color: var(--b-night);
+  --h5-color: var(--b-night);
+  --h6-color: var(--b-night);
+  --p-color: var(--g-onyx);
+  --a-color: var(--b-gm);
+  --li-color: var(--g-coal);
+  --ul-color: var(--g-coal);
+}
+
+html[data-theme="dark"] {
+  --bg-color: var(--g-jet);
+  --text-color: var(--w-flash);
+  --h1-color: var(--w-smoke);
+  --h2-color: var(--w-flash);
+  --h3-color: var(--w-twolf);
+  --h4-color: var(--w-plat);
+  --h5-color: var(--w-twolf);
+  --h6-color: var(--w-twolf);
+  --p-color: var(--w-light);
+  --a-color: var(--w-twolf);
+  --li-color: var(--w-twolf);
+  --ul-color: var(--w-twolf);
+}
+
+
 /* Typography */
 h1 {
-  font-size: 4.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-}
-h2 {
-  font-size: 3.5rem;
+  color: var(--h1-color);
+  font-size: 7.5rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.075em;
+}
+h2 {
+  color: var(--h2-color);
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.065em;
 }
 h3 {
+  color: var(--h3-color);
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.055em;
 }
 h4 {
+  color: var(--h4-color);
   font-size: 2.75rem;
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.045em;
 }
 h5 {
+  color: var(--h5-color);
   font-size: 2.5rem;
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
 }
 h6 {
+  color: var(--h6-color);
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.025em;
 }
 p {
+  color: var(--p-color);
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
 }
 a {
+  color: var(--a-color);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 }
 li {
+  color: var(--li-color);
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.025em;
 }
 ul {
+  color: var(--ul-color);
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.005em;
 }
