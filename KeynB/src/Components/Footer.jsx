@@ -13,6 +13,8 @@ const Footer = () => {
         <h3 className="footer-heading">Let's Connect!</h3>
         <p className="footer-contact-item">573-397-8946</p>
         <p className="footer-contact-item">keynb50@gmail.com</p>
+        {/* Badge  */}
+        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/153842209" alt="SeBadge"></img>
         <div className="footer-links">
           <a
             href="https://www.linkedin.com/in/key-n-brosdahl-5320b3353/"

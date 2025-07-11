@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { SunIcon, MoonIcon, SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import keyhole from "../assets/logos/key-hole.png";
 import "./CompStyles.css";
 
@@ -42,6 +42,10 @@ const Navbar = () => {
         {/* Portfolio Title/Logo */}
         <div className="navLogo">
           <img src={keyhole} alt="Key'hole" className="KeyHole"></img>
+        </div>
+
+        <div className="volume">
+          <SpeakerWaveIcon className="volume-icon" aria-label="Toggle theme"/>
         </div>
 
         {/* Navigation Links */}

@@ -1,10 +1,11 @@
-import Navbar from './Components/Navbar';
-import Hero from './Components/Hero';
-import XpCards from './Components/xpCards';
-import Projects from './Components/Projects';
-import Edu from './Components/Edu';
-import Hobbies from './Components/Hobbies';
-import Footer from './components/Footer';
+import Navbar from "./Components/Navbar";
+import Hero from "./Components/Hero";
+import XpCards from "./Components/xpCards";
+import Projects from "./Components/Projects";
+import Edu from "./Components/Edu";
+import Hobbies from "./Components/Hobbies";
+import Footer from "./Components/Footer";
+import HobsTop from "./Components/HobsTop";
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
         <XpCards />
         <Projects />
         <Edu />
+        <HobsTop />
         <Hobbies />
       </main>
-        <Footer/>
+      <Footer />
     </div>
   );
 }

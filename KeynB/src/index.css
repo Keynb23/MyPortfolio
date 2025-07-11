@@ -1,4 +1,4 @@
-/* Global Reset */
+/* global styles */
 * {
   padding: 0;
   margin: 0;
@@ -24,6 +24,15 @@ html, body, #root {
 
 /* Color scheme| 60, 30, 10 rule | Light and Dark Modes */
 :root {
+
+  /* Tarantino Color Scheme */
+  --yellow: rgb(255, 180, 31);
+  --red: rgb(152, 11, 18);
+  --redGlow: rgb(192, 20, 17);
+  --blue: rgb(12, 79, 131);
+  --pink: rgb(207, 6, 207);
+  --brown: rgb(82, 72, 40);
+
   /* Neutral colors. (Your base palette) */
   --b-eerie: rgb(31, 31, 30);
   --b-night: rgb(10, 10, 10);
