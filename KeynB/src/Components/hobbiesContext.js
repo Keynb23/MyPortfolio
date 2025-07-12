@@ -10,22 +10,12 @@ import Twist from "../assets/movies/Twist.jfif";
 import TwistRed from "../assets/movies/TwistRed.png";
 import WhiteBastards from "../assets/movies/WhiteBastards.jfif";
 import Larry from "../assets/hobbies/Larry.jpg";
-import rick from "../assets/hobbies/rick.jpg";
 import nba from "../assets/bball/nba.jpg";
 import lbj from "../assets/bball/lbMiami.jpg";
 import leYellow from "../assets/bball/leYellow.jpg";
-import leblock from "../assets/bball/leBlock.jpg";
-import goat from "../assets/bball/goat.jpg";
-import ears from "../assets/hobbies/ears.jpg";
 import code from "../assets/hobbies/code.webp";
-import stim from "../assets/hobbies/stim.webp";
-import ben from "../assets/hobbies/ben.webp";
-import sometimes from "../assets/hobbies/sometimes.png";
-import sad from "../assets/hobbies/sad.jpg";
-import shredded from "../assets/hobbies/shredded.jpg";
 import shawty from "../assets/hobbies/shawty.jpg";
 import popcorn from "../assets/hobbies/popcorn.webp";
-import teenMovie from "../assets/hobbies/teenMovie.jpg"; // Corrected path/import from previous context
 import qt from "../assets/hobbies/qt.webp";
 import Misirlou from "../assets/Misirlou.mp3";
 import pie from '../assets/hobbies/pie.png';
@@ -34,21 +24,14 @@ import sky from '../assets/hobbies/Skylar.avif';
 
 // Define the content for the narrative experience
 export const hobbyContent = [
-  { type: "image", text: "Listen...", image: ears, textColor: "var(--yellow)", },
-  { type: "image", text: "I like to code", image: code, textColor: "var(--yellow)" },
-  { type: "image", text: "It's stimulating", image: stim, textColor: "var(--yellow)" },
+  { type: "image", text: "Listen...", textColor: "var(--yellow)", },
+  { type: "image", text: "I like to code", code, textColor: "var(--yellow)" },
+  { type: "image", text: "It's stimulating", textColor: "var(--yellow)" },
   {
     type: "text",
     text: '"stimulating" sounds a little weird lol',
     textColor: "var(--yellow)",
   },
-  {
-    type: "image",
-    text: "",
-    image: sometimes,
-    textColor: "var(--yellow)",
-  },
-  { type: "image", text: "I need a break", image: ben, textColor: "var(--yellow)" },
   {
     type: "", text: 'Need a break from the ads?', textColor: 'rgb(65, 255, 156)'
   },
@@ -73,15 +56,8 @@ export const hobbyContent = [
     type: 'image', image: Larry
   },
   {
-    type: "image",
-    text: "like 3ish days/week",
-    image: sad,
-    textColor: "var(--yellow)",
-  },
-  {
-    type: "image",
+    type: "",
     text: "I was shredded at one point",
-    image: shredded,
     textColor: "var(--yellow)",
   },
   {
@@ -91,7 +67,7 @@ export const hobbyContent = [
     textColor: "var(--yellow)",
   },
   {
-    type: '', text: 'Hang in there. Almost done'
+    type: '', text: 'Hang in there. Almost done', textColor: 'var(--yellow)'
   },
   { type: "image", text: "Big MJ fan", image: mj, textColor: "var(--w-light)" },
   { type: "", text: "SIKE", textColor: "var(--redGlow)" },
@@ -104,38 +80,24 @@ export const hobbyContent = [
     textColor: "var(--w-flash)",
   },
   {
-    type: "image",
-    text: "LeGoat bahahahaha",
-    image: leblock,
-    textColor: "var(--blue)",
-  },
-  { type: "image", text: "LeGoat bahahahaha", image: goat, textColor: "var(--w-plat)" },
-  {
-    type: "image",
+    type: '',
     text: "Favorite passtime?",
-    image: rick,
-    textColor: "var(--w-smoke)",
-  },
-  { type: "image", text: "Watching a good movie or show", image: popcorn, textColor: "var(--yellow)" },
-  {
-    type: "image",
-    text: "Good?",
-    image: teenMovie,
-    textColor: "var(--w-flash)",
-  },
-  { type: "image", text: "Good", image: sky, textColor: "var(--redGlow)" },
-  {
-    type: "image",
-    text: "Specifically...",
     textColor: "var(--yellow)",
   },
+  { type: "image", text: "A cinematic escape", image: popcorn, textColor: "var(--yellow)" },
+  {
+    type: '',
+    text: "Hate that I said I left that in lol",
+    textColor: "var(--yellow)",
+  },
+  { type: "image", text: "PEAK CINEMA", image: sky, textColor: "var(--yellow)" },
   {
     type: "audio-visual-qt", // Custom type for specific QT behavior
     text: "", // HERE
     image: qt,
     audio: Misirlou,
     audioStart: 0,
-    initialDisplayDuration: 5000, // Display QT for 5 seconds
+    initialDisplayDuration: 60000, 
     textColor: "var(--yellow)",
   },
   // Images that were part of imageCycle, now individual slides
@@ -155,12 +117,7 @@ export const hobbyContent = [
     textColor: "var(--yellow)",
   }, // HERE NOW - This is a text-only slide
   {
-    type: "audio-visual-final", // Custom type for final audio-visual behavior
-    image: DistordedPF,
     text: "Key'n Brosdahl",
     textColor: "var(--yellow)",
-    audio: Misirlou,
-    audioStart: 60,
-    audioFadeOutDuration: 7500,
   },
 ];

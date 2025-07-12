@@ -7,8 +7,13 @@ const Hobbies = () => {
   const [currentContentIndex, setCurrentContentIndex] = useState(-1);
   const audioRef = useRef(null);
   const audioFadeTimeoutRef = useRef(null);
-  const [audioVolume, setAudioVolume] = useState(0.5);
+  // Set initial volume to 0.5 (50%)
+  const [audioVolume] = useState(0.5);
   const [isMuted, setIsMuted] = useState(false);
+
+  // New state to track if a user interaction has occurred
+  // that handles the initial user click/tap.
+  const [userHasInteracted, setUserHasInteracted] = useState(false);
 
   // A ref to hold the main section element
   const sectionRef = useRef(null);
@@ -16,20 +21,33 @@ const Hobbies = () => {
   // This will store a reference to the observer so we can disconnect it on cleanup
   const observerRef = useRef(null);
 
-  // --- Audio Playback Logic (Largely Unchanged) ---
+  // --- Audio Playback Logic ---
   const playAudioWithFade = useCallback(
     (audioSrc, startTime = 0, duration = null, fadeOutDuration = null) => {
+      // ONLY attempt to play audio if a user interaction has occurred
+      if (!userHasInteracted) {
+        console.log(
+          "Audio playback blocked: No prior user interaction detected."
+        );
+        return;
+      }
+
       if (!audioRef.current || audioRef.current.src !== audioSrc) {
         if (audioRef.current) {
           audioRef.current.pause();
+          audioRef.current.src = ""; // Clear source to prevent re-fetching
         }
         audioRef.current = new Audio(audioSrc);
         audioRef.current.loop = false;
       }
+
       if (audioFadeTimeoutRef.current)
         clearTimeout(audioFadeTimeoutRef.current);
+
+      // Set volume based on mute state and the fixed audioVolume (0.5)
       audioRef.current.volume = isMuted ? 0 : audioVolume;
       audioRef.current.currentTime = startTime;
+
       audioRef.current
         .play()
         .catch((error) => console.error("Audio playback failed:", error));
@@ -42,9 +60,10 @@ const Hobbies = () => {
 
       if (fadeOutDuration) {
         // Fade out logic remains the same
+        // (You can implement it here if you need it, based on your original code)
       }
     },
-    [audioVolume, isMuted]
+    [audioVolume, isMuted, userHasInteracted] // Add userHasInteracted to dependencies
   );
 
   // --- New Intersection Observer for Scroll Triggering ---
@@ -63,8 +82,8 @@ const Hobbies = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-45% 0px -45% 0px',
-      threshold: 0.01, // Trigger when 50% of the element is visible
+      rootMargin: "-45% 0px -45% 0px",
+      threshold: 0.01, // Trigger when any part of the element is visible
     };
 
     const observer = new IntersectionObserver(
@@ -81,6 +100,7 @@ const Hobbies = () => {
       // Cleanup audio and styles on component unmount
       if (audioRef.current) {
         audioRef.current.pause();
+        audioRef.current.src = ""; // Clear source
       }
       document.body.style.overflow = "auto";
     };
@@ -96,12 +116,24 @@ const Hobbies = () => {
     const qtStartIndex = hobbyContent.findIndex(
       (item) => item.type === "audio-visual-qt"
     );
+
     if (currentContentIndex === qtStartIndex) {
       const qtAudioContent = hobbyContent[qtStartIndex];
       playAudioWithFade(qtAudioContent.audio, qtAudioContent.audioStart || 0);
       if (audioRef.current) audioRef.current.loop = true;
     } else if (currentContentIndex > qtStartIndex) {
-      // Logic to continue music
+      // Logic to continue music if needed for subsequent slides
+      if (audioRef.current && audioRef.current.src) {
+        // Ensure the audio is still playing if it should continue
+        // and try to restart if it somehow stopped and userHasInteracted
+        if (audioRef.current.paused && userHasInteracted) {
+          audioRef.current
+            .play()
+            .catch((error) =>
+              console.error("Audio resume failed on scroll:", error)
+            );
+        }
+      }
     } else {
       // Logic to stop music on other slides
       if (audioRef.current) {
@@ -109,26 +141,36 @@ const Hobbies = () => {
         audioRef.current.loop = false;
       }
     }
-  }, [currentContentIndex, playAudioWithFade]);
+    // Add userHasInteracted to dependencies here as well
+  }, [currentContentIndex, playAudioWithFade, userHasInteracted]);
 
-  // --- Volume and Mute Handlers (Unchanged) ---
-  const handleVolumeChange = (e) => {
-    const newVolume = parseFloat(e.target.value);
-    setAudioVolume(newVolume);
-    if (audioRef.current) {
-      audioRef.current.volume = isMuted ? 0 : newVolume;
-    }
-  };
+  // --- Mute Handler ---
   const toggleMute = () => {
     setIsMuted((prev) => !prev);
   };
 
-  // This effect specifically handles volume and mute changes.
+  // This effect specifically handles mute changes.
+  // Volume is now fixed at 0.5 unless muted.
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.volume = isMuted ? 0 : audioVolume;
+      audioRef.current.volume = isMuted ? 0 : audioVolume; // audioVolume is fixed at 0.5
     }
-  }, [isMuted, audioVolume]);
+  }, [isMuted, audioVolume]); // audioVolume is still a dependency for clarity, though its value is constant
+
+  // --- Simulate User Interaction (FOR TESTING ONLY) ---
+  // In your actual app, you would receive `userHasInteracted` as a prop
+  // from a parent component where the initial button click occurs.
+  useEffect(() => {
+    console.log(
+      "Simulating user interaction after 2 seconds for demonstration."
+    );
+    const interactionTimeout = setTimeout(() => {
+      setUserHasInteracted(true);
+      console.log("User interaction simulated: userHasInteracted set to true.");
+    }, 2000); // Simulate a delay before user interaction
+
+    return () => clearTimeout(interactionTimeout);
+  }, []);
 
   return (
     <section id="hobbies" ref={sectionRef} className="hobbies-section">
@@ -165,15 +207,7 @@ const Hobbies = () => {
             <button onClick={toggleMute} className="mute-button">
               {isMuted ? "🔇" : "🔊"}
             </button>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={audioVolume}
-              onChange={handleVolumeChange}
-              disabled={isMuted}
-            />
+            {/* Removed the volume input slider */}
           </div>
         )}
       </div>

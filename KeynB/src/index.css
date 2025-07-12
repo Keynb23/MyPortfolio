@@ -7,8 +7,6 @@
 
 body, html, :root {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  /* font-family: 'poppins', 'sans-serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-  /* Default colors (Light Mode by default, or if system is light) */
   background-color: var(--bg-color);
   color: var(--text-color);
 }
