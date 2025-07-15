@@ -1,41 +1,11 @@
-import { useState, useEffect } from "react";
-import { SunIcon, MoonIcon, SpeakerWaveIcon } from "@heroicons/react/24/solid";
 import keyhole from "../assets/logos/key-hole.png";
+// import github from '../assets/logos/github.png'
+// import linkedin from '../assets/logos/linkedin.png'
+import github from "../assets/logos/github.purple.png";
+import linkedin from "../assets/logos/linkedin.blue.png";
 import "./CompStyles.css";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(() => {
-    // Initialize theme based on system preference or stored value
-    if (typeof window !== "undefined" && window.localStorage) {
-      const storedTheme = localStorage.getItem("theme");
-      if (storedTheme) {
-        return storedTheme;
-      }
-      // Fallback to system preference if no theme is stored
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return "light"; // Default to light if not in a browser environment
-  });
-
-  // Effect to apply the theme to the document's html element
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]); // Re-run when theme changes
-
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -44,8 +14,25 @@ const Navbar = () => {
           <img src={keyhole} alt="Key'hole" className="KeyHole"></img>
         </div>
 
-        <div className="volume">
-          <SpeakerWaveIcon className="volume-icon" aria-label="Toggle theme"/>
+        <div className="hero-links">
+          <a
+            href="https://www.linkedin.com/in/key-n-brosdahl-5320b3353/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-link-logo"
+            aria-label="LinkedIn Profile"
+          >
+            <img src={linkedin} alt="LinkedIn Logo" />
+          </a>
+          <a
+            href="https://github.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-link-logo"
+            aria-label="GitHub Profile"
+          >
+            <img src={github} alt="GitHub Logo" />
+          </a>
         </div>
 
         {/* Navigation Links */}
@@ -65,19 +52,6 @@ const Navbar = () => {
           <a href="#contact" className="navbar-link">
             Contact
           </a>
-
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="theme-toggle-button"
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? (
-              <MoonIcon className="theme-toggle-icon" />
-            ) : (
-              <SunIcon className="theme-toggle-icon" />
-            )}
-          </button>
         </div>
       </div>
     </nav>

@@ -16,9 +16,6 @@
     z-index: 48;
     width: 100%;
     height: 80px; /* Slightly reduced height for a sleeker look */
-    background-color: var(--b-gm);
-    border-bottom: 1px solid var(--g-onyx);
-    box-shadow: var(--bs-l-sharp);
 }
 
 .navbar-container {
@@ -30,6 +27,7 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 var(--pad-m);
+    
 }
 
 .navLogo a {
@@ -42,6 +40,8 @@
     width: 50px;
     object-fit: contain;
     border-radius: 50%;
+    box-shadow: var(--bsY-l-sharp);
+    cursor: pointer;
 }
 
 .nav-links {
@@ -53,31 +53,18 @@
 .navbar-link {
     padding: var(--pad-s) var(--pad-m);
     border-radius: 6px;
-    background-color: var(--g-coal);
-    box-shadow: var(--bs-light);
+    background-color: var(--bg-color);
+    box-shadow: var(--h1-color);
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .navbar-link:hover {
     transform: translateY(-2px);
-    box-shadow: var(--bs-med);
+    box-shadow: var(--bsB-l-sharp);
 }
 
-.theme-toggle-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border-radius: 50%;
-    box-shadow: var(--bs-light);
-    border: none;
-    cursor: pointer;
-    background-color: var(--g-coal);
-    color: var(--w-flash);
-}
+
 
 /* ==========================================================================
    Hero Section
@@ -94,38 +81,69 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Align content to the left */
+    align-items: flex-start;
     width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
+    margin: var(--marg-xl);
+    padding: var(--pad-l);
+}
+
+.hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--bg-color); 
+    border: 1px solid var(--bg-color);
+    border-radius: 6px;
+    padding: var(--pad-m);
+    margin: var(--marg-m);
+    box-shadow: var(--bsB-med);
 }
 
 .hero-title {
-    margin-bottom: var(--marg-s);
+    margin: 0 var(--marg-m);
+    padding: 0 0 var(--pad-l);
 }
 
 .hero-subtitle {
-    margin-bottom: var(--marg-l);
+    margin: 0 var(--marg-m);
+    padding: 0 0 var(--pad-l);
 }
 
 .hero-summary {
-    max-width: 650px; /* Constrain summary width for readability */
-    margin-bottom: var(--marg-l);
+    max-width: 650px; 
+    margin: 0 var(--marg-m);
+    padding: 0 0 var(--pad-l);
+}
+
+.hero-summary-close {
+    max-width: 650px; 
+    margin: 0 var(--marg-m);
+    padding: 0 0 var(--pad-l);
 }
 
 .hero-contact-info {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Keep contact info left-aligned */
+    align-items: flex-start; 
     gap: var(--gap-s);
-    margin-bottom: var(--marg-m);
+    margin: 0 var(--marg-m);
+    padding: 0 0 var(--pad-l);
 }
 
 .hero-contact-item {
     display: flex;
     align-items: center;
     gap: var(--gap-s);
+}
+
+#hero-phone {
+    border-bottom: 1px solid var(--a-color);
+}
+
+#hero-email {
+    border-bottom: 1px solid var(--a-color);
+    margin: 0 0 var(--marg-s);
 }
 
 .hero-links {

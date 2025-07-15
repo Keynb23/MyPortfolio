@@ -1,4 +1,34 @@
-/* global styles */
+.theme-toggle-button {
+    position: fixed;
+    top: 15%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--g-coal);
+    color: var(--w-flash);
+}
+
+.theme-toggle-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--bsY-l-sharp);
+}
+
+.app-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+/* -------------------global styles --------------------*/
 * {
   padding: 0;
   margin: 0;
@@ -33,7 +63,6 @@ body,
   --redGlow: rgb(192, 20, 17);
   --blue: rgb(12, 79, 131);
   --pink: rgb(207, 6, 207);
-  --brown: rgb(82, 72, 40);
   --green: rgba(25, 158, 25, 0.829);
   /* Neutral colors. (Your base palette) */
   --b-eerie: rgb(31, 31, 30);
@@ -46,7 +75,7 @@ body,
   --w-twolf: rgb(215, 215, 213);
   --w-flash: rgb(235, 235, 235);
   --w-plat: rgb(210, 214, 218);
-  --w-smoke: rgb(245, 245, 245);
+  --w-smoke: rgb(240, 239, 238);
   --w-light: rgb(224, 224, 224);
 
   /* Light Mode Colors (Applied by default or via data-theme="light") */
@@ -150,7 +179,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --bg-color: var(--g-jet);
+  --bg-color: var(--b-eerie);
   --text-color: var(--w-flash);
   --h1-color: var(--w-smoke);
   --h2-color: var(--w-flash);
