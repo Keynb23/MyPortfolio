@@ -1,154 +1,157 @@
-.theme-toggle-button {
-    position: fixed;
-    top: 15%;
-    right: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background-color: var(--g-coal);
-    color: var(--w-flash);
-}
-
-.theme-toggle-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--bsY-l-sharp);
-}
-
-.app-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 0;
-}
-
 /* -------------------global styles --------------------*/
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body,
 html,
 :root {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html,
 body,
 #root {
-  scroll-behavior: smooth;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 
 /* Color scheme| 60, 30, 10 rule | Light and Dark Modes */
 :root {
 
-  /* Color Scheme */
-  --yellow: rgb(255, 180, 31);
-  --red: rgb(152, 11, 18);
-  --redGlow: rgb(192, 20, 17);
-  --blue: rgb(12, 79, 131);
-  --pink: rgb(207, 6, 207);
-  --green: rgba(25, 158, 25, 0.829);
-  /* Neutral colors. (Your base palette) */
-  --b-eerie: rgb(31, 31, 30);
-  --b-night: rgb(10, 10, 10);
-  --b-smoky: rgb(14, 17, 3);
-  --b-gm: rgb(36, 41, 45);
-  --g-jet: rgb(41, 41, 41);
-  --g-onyx: rgb(61, 61, 61);
-  --g-coal: rgb(64, 71, 79);
-  --w-twolf: rgb(215, 215, 213);
-  --w-flash: rgb(235, 235, 235);
-  --w-plat: rgb(210, 214, 218);
-  --w-smoke: rgb(240, 239, 238);
-  --w-light: rgb(224, 224, 224);
+    /* Color Scheme */
+    --yellow: rgb(255, 180, 31);
+    --red: rgb(152, 11, 18);
+    --redGlow: rgb(192, 20, 17);
+    --blue: rgb(12, 79, 131);
+    --pink: rgb(207, 6, 207);
+    --green: rgba(25, 158, 25, 0.829);
+    /* Neutral colors. (Your base palette) */
+    --b-eerie: rgb(31, 31, 30);
+    --b-night: rgb(10, 10, 10);
+    --b-smoky: rgb(14, 17, 3);
+    --b-gm: rgb(36, 41, 45);
+    --g-jet: rgb(41, 41, 41);
+    --g-onyx: rgb(61, 61, 61);
+    --g-coal: rgb(64, 71, 79);
+    --w-twolf: rgb(215, 215, 213);
+    --w-flash: rgb(235, 235, 235);
+    --w-plat: rgb(210, 214, 218);
+    --w-smoke: rgb(240, 239, 238);
+    --w-light: rgb(224, 224, 224);
 
-  /* Light Mode Colors (Applied by default or via data-theme="light") */
-  --bg-color: var(--w-smoke);
-  /* Example light background */
-  --text-color: var(--b-night);
-  /* Example dark text */
-  --h1-color: var(--b-night);
-  --h2-color: var(--b-night);
-  --h3-color: var(--b-night);
-  --h4-color: var(--b-night);
-  --h5-color: var(--b-night);
-  --h6-color: var(--b-night);
-  --p-color: var(--g-onyx);
-  --a-color: var(--b-gm);
-  --li-color: var(--g-coal);
-  --ul-color: var(--g-coal);
+    /* Light Mode Colors (Applied by default or via data-theme="light") */
+    --bg-color: var(--w-smoke);
+    --text-color: var(--b-night);
+    --h1-color: var(--b-night);
+    --h2-color: var(--b-night);
+    --h3-color: var(--b-night);
+    --h4-color: var(--b-night);
+    --h5-color: var(--b-night);
+    --h6-color: var(--b-night);
+    --p-color: var(--g-onyx);
+    --a-color: var(--b-gm);
+    --li-color: var(--g-coal);
+    --ul-color: var(--g-coal);
 
 
-  /* ==================================------------------=================================== */
-  /* Spacing (All spacing is the same right now. Might adjust later) */
-  /* Margins */
-  --marg-xs: 0.25rem;
-  --marg-s: 0.5rem;
-  --marg-m: 1rem;
-  --marg-l: 1.5rem;
-  --marg-xl: 3rem;
-  /* Padding */
-  --pad-xs: 0.25rem;
-  --pad-s: 0.5rem;
-  --pad-m: 1rem;
-  --pad-l: 1.5rem;
-  --pad-xl: 3rem;
-  /* Gap */
-  --gap-xs: 0.25rem;
-  --gap-s: 0.5rem;
-  --gap-m: 1rem;
-  --gap-l: 1.5rem;
-  --gap-xl: 3rem;
-  /* ==================================================--=================================== */
-  /* Box Shadows */
-  --bs-light: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  --bs-l-sharp: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  --bs-med: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  --bs-high: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  --bs-m-round: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  /* Box shadow Red */
-  --bsR-light: rgba(224, 7, 7, 0.89) 0px 7px 29px 0px;
-  --bsR-l-sharp: rgba(224, 7, 7, 0.89) 0px 1px 4px;
-  --bsR-med: rgba(224, 7, 7, 0.89) 0px 5px 15px;
-  --bsR-high: rgba(224, 7, 7, 0.89) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  --bsR-m-round: rgba(224, 7, 7, 0.89) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  /* Box shadow Yellow */
-  --bsY-light: rgba(220, 224, 7, 0.89) 0px 7px 29px 0px;
-  --bsY-l-sharp: rgba(220, 224, 7, 0.89) 0px 1px 4px;
-  --bsY-med: rgba(220, 224, 7, 0.89) 0px 5px 15px;
-  --bsY-high: rgba(220, 224, 7, 0.89) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  --bsY-m-round: rgba(220, 224, 7, 0.89) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  /* Box shadow Blue */
-  --bsB-light: rgba(21, 186, 236, 0.89) 0px 7px 29px 0px;
-  --bsB-l-sharp: rgba(21, 186, 236, 0.89) 0px 1px 4px;
-  --bsB-med: rgba(21, 186, 236, 0.89) 0px 5px 15px;
-  --bsB-high: rgba(21, 186, 236, 0.89) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  --bsB-m-round: rgba(21, 186, 236, 0.89) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* ==================================------------------=================================== */
+    /* Spacing */
+    --marg-xs: 0.25rem;
+    --marg-s: 0.5rem;
+    --marg-m: 1rem;
+    --marg-l: 1.5rem;
+    --marg-xl: 3rem;
+
+    --pad-xs: 0.25rem;
+    --pad-s: 0.5rem;
+    --pad-m: 1rem;
+    --pad-l: 1.5rem;
+    --pad-xl: 3rem;
+
+    --gap-xs: 0.25rem;
+    --gap-s: 0.5rem;
+    --gap-m: 1rem;
+    --gap-l: 1.5rem;
+    --gap-xl: 3rem;
+    /* ==================================================--=================================== */
+    /* Box Shadows */
+    --bs-light: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --bs-l-sharp: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --bs-med: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --bs-high: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --bs-m-round: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* Box shadow Red */
+    --bsR-light: rgba(224, 7, 7, 0.89) 0px 7px 29px 0px;
+    --bsR-l-sharp: rgba(224, 7, 7, 0.89) 0px 1px 4px;
+    --bsR-med: rgba(224, 7, 7, 0.89) 0px 5px 15px;
+    --bsR-high: rgba(224, 7, 7, 0.89) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --bsR-m-round: rgba(224, 7, 7, 0.89) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* Box shadow Yellow */
+    --bsY-light: rgba(220, 224, 7, 0.89) 0px 7px 29px 0px;
+    --bsY-l-sharp: rgba(220, 224, 7, 0.89) 0px 1px 4px;
+    --bsY-med: rgba(220, 224, 7, 0.89) 0px 5px 15px;
+    --bsY-high: rgba(220, 224, 7, 0.89) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --bsY-m-round: rgba(220, 224, 7, 0.89) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* Box shadow Blue */
+    --bsB-light: rgba(21, 186, 236, 0.89) 0px 7px 29px 0px;
+    --bsB-l-sharp: rgba(21, 186, 236, 0.89) 0px 1px 4px;
+    --bsB-med: rgba(21, 186, 236, 0.89) 0px 5px 15px;
+    --bsB-high: rgba(21, 186, 236, 0.89) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --bsB-m-round: rgba(21, 186, 236, 0.89) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* Dark Mode Colors (Applied if system prefers dark, or via data-theme="dark") */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: var(--g-jet);
-    /* Your original dark background */
+    :root {
+        --bg-color: var(--g-jet);
+        --text-color: var(--w-flash);
+        --h1-color: var(--w-smoke);
+        --h2-color: var(--w-flash);
+        --h3-color: var(--w-twolf);
+        --h4-color: var(--w-plat);
+        --h5-color: var(--w-twolf);
+        --h6-color: var(--w-twolf);
+        --p-color: var(--w-light);
+        --a-color: var(--w-twolf);
+        --li-color: var(--w-twolf);
+        --ul-color: var(--w-twolf);
+    }
+}
+
+/* Manual Theme Toggle Overrides */
+html[data-theme="light"] {
+    --bg-color: var(--w-smoke);
+    --text-color: var(--b-night);
+    --h1-color: var(--b-night);
+    --h2-color: var(--b-night);
+    --h3-color: var(--b-night);
+    --h4-color: var(--b-night);
+    --h5-color: var(--b-night);
+    --h6-color: var(--b-night);
+    --p-color: var(--g-onyx);
+    --a-color: var(--b-gm);
+    --li-color: var(--g-coal);
+    --ul-color: var(--g-coal);
+    background-image: url('./assets/movies/MiaSmoke.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html[data-theme="dark"] {
+    --bg-color: var(--b-eerie);
     --text-color: var(--w-flash);
-    /* Your original dark text */
     --h1-color: var(--w-smoke);
     --h2-color: var(--w-flash);
     --h3-color: var(--w-twolf);
@@ -159,118 +162,90 @@ body,
     --a-color: var(--w-twolf);
     --li-color: var(--w-twolf);
     --ul-color: var(--w-twolf);
-  }
+    background-image: url('./assets/movies/IB-Hanz.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
-/* Manual Theme Toggle Overrides */
-html[data-theme="light"] {
-  --bg-color: var(--w-smoke);
-  --text-color: var(--b-night);
-  --h1-color: var(--b-night);
-  --h2-color: var(--b-night);
-  --h3-color: var(--b-night);
-  --h4-color: var(--b-night);
-  --h5-color: var(--b-night);
-  --h6-color: var(--b-night);
-  --p-color: var(--g-onyx);
-  --a-color: var(--b-gm);
-  --li-color: var(--g-coal);
-  --ul-color: var(--g-coal);
-}
-
-html[data-theme="dark"] {
-  --bg-color: var(--b-eerie);
-  --text-color: var(--w-flash);
-  --h1-color: var(--w-smoke);
-  --h2-color: var(--w-flash);
-  --h3-color: var(--w-twolf);
-  --h4-color: var(--w-plat);
-  --h5-color: var(--w-twolf);
-  --h6-color: var(--w-twolf);
-  --p-color: var(--w-light);
-  --a-color: var(--w-twolf);
-  --li-color: var(--w-twolf);
-  --ul-color: var(--w-twolf);
-}
-
 
 /* Typography */
 h1 {
-  color: var(--h1-color);
-  font-size: 7.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.075em;
+    color: var(--h1-color);
+    font-size: 7.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.075em;
 }
 
 h2 {
-  color: var(--h2-color);
-  font-size: 4.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.065em;
+    color: var(--h2-color);
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.065em;
 }
 
 h3 {
-  color: var(--h3-color);
-  font-size: 3rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.055em;
+    color: var(--h3-color);
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.055em;
 }
 
 h4 {
-  color: var(--h4-color);
-  font-size: 2.75rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.045em;
+    color: var(--h4-color);
+    font-size: 2.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.045em;
 }
 
 h5 {
-  color: var(--h5-color);
-  font-size: 2.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.035em;
+    color: var(--h5-color);
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
 }
 
 h6 {
-  color: var(--h6-color);
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+    color: var(--h6-color);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
 }
 
 p {
-  color: var(--p-color);
-  font-size: 1.15rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+    color: var(--p-color);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
 }
 
 a {
-  color: var(--a-color);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+    color: var(--a-color);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
 li {
-  color: var(--li-color);
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+    color: var(--li-color);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
 }
 
 ul {
-  color: var(--ul-color);
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
+    color: var(--ul-color);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
 }

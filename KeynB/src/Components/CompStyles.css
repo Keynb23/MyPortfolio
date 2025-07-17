@@ -1,21 +1,46 @@
+/* ------------------- Theme Toggle Button --------------------*/
+.theme-toggle-button {
+    position: fixed;
+    top: 15%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--g-coal);
+    color: var(--w-flash);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 50; /* Ensure it's above other content but below modals */
+}
+
+.theme-toggle-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--bsY-l-sharp);
+}
+
 /* --- General Section & Container --- */
 .section-container {
     width: 100%;
-    max-width: 1280px; /* Consistent max-width for content */
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding: var(--pad-l) var(--pad-m); /* Default padding */
+    padding: var(--pad-l) var(--pad-m);
 }
 
 /* ==========================================================================
    Navbar
    ========================================================================== */
 .navbar {
-    position: relative; 
+    position: relative;
     top: 0;
     z-index: 48;
     width: 100%;
-    height: 80px; /* Slightly reduced height for a sleeker look */
+    height: 80px;
 }
 
 .navbar-container {
@@ -27,7 +52,6 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 var(--pad-m);
-    
 }
 
 .navLogo a {
@@ -56,7 +80,7 @@
     background-color: var(--bg-color);
     box-shadow: var(--h1-color);
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
 .navbar-link:hover {
@@ -73,7 +97,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: calc(100vh - 80px); /* Full height minus navbar */
+    min-height: calc(100vh - 80px);
     padding: var(--pad-l) var(--pad-m);
 }
 
@@ -91,12 +115,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--bg-color); 
+    background-color: var(--bg-color);
     border: 1px solid var(--bg-color);
     border-radius: 6px;
     padding: var(--pad-m);
     margin: var(--marg-m);
     box-shadow: var(--bsB-med);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-title {
@@ -110,13 +135,13 @@
 }
 
 .hero-summary {
-    max-width: 650px; 
+    max-width: 650px;
     margin: 0 var(--marg-m);
     padding: 0 0 var(--pad-l);
 }
 
 .hero-summary-close {
-    max-width: 650px; 
+    max-width: 650px;
     margin: 0 var(--marg-m);
     padding: 0 0 var(--pad-l);
 }
@@ -125,7 +150,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;
     gap: var(--gap-s);
     margin: 0 var(--marg-m);
     padding: 0 0 var(--pad-l);
@@ -174,12 +199,13 @@
 
 .xp-section, .education-card {
     width: 100%;
-    max-width: 700px; /* Set a max-width instead of fixed width */
+    max-width: 700px;
     padding: var(--pad-l);
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: var(--bs-med);
     background-color: var(--b-gm);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .xp-heading, .education-heading {
@@ -217,15 +243,16 @@
     color: var(--bg-color);
     cursor: pointer;
     box-shadow: var(--bs-light);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 .education-card {
     display: flex;
-    flex-direction: row; /* Default to row layout */
+    flex-direction: row;
     align-items: center;
     gap: var(--gap-l);
 }
 .edu-img {
-    flex-shrink: 0; /* Prevent image from shrinking */
+    flex-shrink: 0;
 }
 .edu-imgs {
     width: 200px;
@@ -261,6 +288,8 @@
     box-shadow: var(--bs-med);
     display: flex;
     flex-direction: column;
+    background-color: var(--b-gm);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card-title {
     margin-bottom: var(--marg-xs);
@@ -276,7 +305,7 @@
     margin-bottom: var(--marg-l);
 }
 .project-links {
-    margin-top: auto; /* Pushes links to the bottom */
+    margin-top: auto;
     display: flex;
     justify-content: center;
     gap: var(--gap-m);
@@ -284,8 +313,8 @@
 }
 .project-img .Project-imgs {
     width: 100%;
-    height: 200px; /* Give a consistent height */
-    object-fit: cover; /* Cover ensures the image fills the space */
+    height: 200px;
+    object-fit: cover;
     border-radius: 6px;
     margin-bottom: var(--marg-m);
 }
@@ -294,112 +323,114 @@
    Modal
    ========================================================================== */
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(10, 10, 10, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  position: relative;
-  width: 90%;
-  max-width: 850px;
-  max-height: 90vh;
-  background-color: var(--b-gm);
-  border-radius: 10px;
-  box-shadow: var(--bs-med);
-  padding: var(--pad-m);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    width: 90%;
+    max-width: 850px;
+    max-height: 90vh;
+    background-color: var(--b-gm);
+    border-radius: 10px;
+    box-shadow: var(--bs-med);
+    padding: var(--pad-m);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .modal-close-button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: transparent;
-  border: none;
-  color: var(--w-flash);
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1002;
-  padding: 5px;
-  line-height: 1;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    color: var(--w-flash);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 5px;
+    line-height: 1;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .modal-close-button:hover {
-  background-color: rgba(235, 235, 235, 0.2);
+    background-color: rgba(235, 235, 235, 0.2);
 }
 
 .modal-image {
-  width: 100%;
-  height: auto;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 8px;
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 .modal-nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 50px;
-  width: 50px;
-  color: var(--w-flash);
-  cursor: pointer;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
-  border-radius: 50%;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  background: rgba(61, 61, 61, 0.25);
-  box-shadow: 0 4px 20px 0 rgba(10, 10, 10, 0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(235, 235, 235, 0.18);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    color: var(--w-flash);
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    background: rgba(61, 61, 61, 0.25);
+    box-shadow: 0 4px 20px 0 rgba(10, 10, 10, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(235, 235, 235, 0.18);
 }
 
 .modal-nav-button:hover {
-  background: rgba(61, 61, 61, 0.5);
-  border-color: rgba(235, 235, 235, 0.3);
+    background: rgba(61, 61, 61, 0.5);
+    border-color: rgba(235, 235, 235, 0.3);
 }
 
 .modal-nav-button.prev {
-  left: var(--pad-m);
+    left: var(--pad-m);
 }
 
 .modal-nav-button.next {
-  right: var(--pad-m);
+    right: var(--pad-m);
 }
 
 .modal-image-counter {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(14, 17, 3, 0.7);
-  color: var(--w-light);
-  padding: 5px 15px;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  z-index: 1001;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(14, 17, 3, 0.7);
+    color: var(--w-light);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    z-index: 1001;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ==========================================================================
-   Hobbies Section (Scroll-Triggered Slider)
+   Interaction Button & Hobbies Section (Scroll-Triggered Slider)
    ========================================================================== */
 
 .interaction-button {
@@ -407,19 +438,19 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    background-color: var(--blue, #007bff); /* Example blue color */
+    background-color: var(--blue, #007bff);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     outline: none;
-    position: relative; /* For pulse effect */
-    overflow: hidden; /* For pulse effect */
+    position: relative;
+    overflow: hidden;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .interaction-button:hover:not(:disabled) {
-    background-color: var(--dark-blue, #0056b3); /* Darker blue on hover */
+    background-color: var(--dark-blue, #0056b3);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
@@ -430,20 +461,18 @@
     background-color: var(--gray, #6c757d);
 }
 
-/* Animation for spin effect */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
 .interaction-button.clicked-spin {
-    animation: spin 1.5s linear forwards; /* Adjust duration to match timeout */
+    animation: spin 1.5s linear forwards;
 }
 
-/* Animation for pulse effect */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
-    70% { box-shadow: 0 0 0 25px rgba(0, 123, 255, 0); } /* Adjust 25px for pulse size */
+    70% { box-shadow: 0 0 0 25px rgba(0, 123, 255, 0); }
     100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
 }
 
@@ -457,7 +486,7 @@
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
-    animation: pulse-fill 0.7s forwards ease-out; /* A quick expanding fill */
+    animation: pulse-fill 0.7s forwards ease-out;
     z-index: -1;
 }
 
@@ -465,20 +494,19 @@
     to { transform: translate(-50%, -50%) scale(2); opacity: 0; }
 }
 
-/* Add an outer pulse effect if you want lights *from behind* it */
 .interaction-button.clicked-pulse {
-    animation: pulse-outer 1.5s ease-out forwards; /* Matches spin duration */
+    animation: pulse-outer 1.5s ease-out forwards;
 }
 
 @keyframes pulse-outer {
-    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } /* Gold/yellow light */
-    50% { box-shadow: 0 0 0 30px rgba(255, 215, 0, 0); } /* Expands and fades */
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    50% { box-shadow: 0 0 0 30px rgba(255, 215, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
 }
 
 .hobbies-section {
     position: relative;
-    background-color: var(--bg-color);
+    background-color: transparent; /* Background image handles this */
     color: var(--text-color);
 }
 
@@ -510,8 +538,17 @@
     pointer-events: none;
     background-size: cover;
     background-position: center;
-    background-color: var(--g-jet);
+    /* This background-color acts as a fallback or base for transparency */
+    background-color: rgba(var(--g-jet-rgb), 0.7); /* Assuming g-jet-rgb is defined */
+    transition: opacity 0.5s ease;
 }
+
+/* Define RGB values for g-jet in your :root in index.css */
+/* Example in index.css: */
+/* :root {
+    --g-jet-rgb: 41, 41, 41;
+} */
+
 
 .hobby-slide.active {
     opacity: 1;
@@ -555,6 +592,7 @@
     gap: var(--gap-s);
     color: var(--w-flash);
     box-shadow: var(--bs-med);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ==========================================================================
@@ -563,6 +601,7 @@
 .footer-section {
     background-color: var(--b-gm);
     padding: var(--pad-l) var(--pad-m);
+    transition: background-color 0.3s ease;
 }
 .footer-container {
     max-width: 1280px;
@@ -625,7 +664,7 @@
         flex-direction: column;
         text-align: center;
     }
-    
+
     .modal-content {
         padding: var(--pad-s);
     }
@@ -681,9 +720,9 @@
     .edu-imgs {
         width: 150px;
     }
-    
+
     .project-cards-grid {
-        grid-template-columns: 1fr; /* Stack project cards */
+        grid-template-columns: 1fr;
     }
 
     .modal-content {
@@ -726,11 +765,11 @@
         width: 35px;
         height: 35px;
     }
-    
+
     .footer-links {
         gap: var(--gap-m);
     }
-    
+
     .modal-content {
         padding: var(--pad-xs);
     }

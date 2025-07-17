@@ -49,9 +49,6 @@ function App() {
         <Navbar />
         <MouseDotEffect>
           <main className="main-content">
-            <div className="app-bg">
-                <img src={MiaSmoke} alt="mia"></img>
-                
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -64,12 +61,11 @@ function App() {
                 <SunIcon className="theme-toggle-icon" />
               )}
             </button>
-            <Hero />
+            {/* <Hero /> */}
+            <Hero /> 
             <XpCards />
             <Projects />
             <Edu />
-            <img src={IBHanz} alt="ibh"></img>
-            </div>
           </main>
         </MouseDotEffect>
         

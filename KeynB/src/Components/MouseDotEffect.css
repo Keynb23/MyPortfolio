@@ -1,14 +1,8 @@
-/* Components/MouseDotEffect.css */
-
 .mouse-effect-container {
     position: relative;
     width: 100%;
-    /* Ensure the container covers the area where you want the effect */
-    /* This min-height should ideally encompass the height of all children it wraps. */
-    /* If your wrapped components (Hero, XpCards, Projects, Edu) have their own heights,
-       the container will naturally expand. If not, set a suitable min-height here. */
-    min-height: 100vh; /* Example: Ensure it's at least one viewport height */
-    overflow: hidden; /* Important: Prevents content from overflowing and causing scrollbars */
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .mouse-effect-container #dotsCanvas {
@@ -17,36 +11,41 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Crucial: Allows mouse events to pass through the canvas to elements below it */
-    z-index: 0; /* Important: Ensures the canvas is the *lowest* layer within this container */
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Now, you need to ensure the *content* inside this container
-   is visible and layered above the canvas. */
-
-/* Example for the main content wrapped by MouseDotEffect */
-/* This assumes your <main> tag inside MouseDotEffect has the class "main-content" */
 .main-content {
-    position: relative; /* Essential to allow z-index to work */
-    z-index: 1; /* Place the main content above the canvas (which is z-index: 0) */
-    /* You might also need to ensure your main-content background is not fully opaque
-       if you want to see the dots through it. */
-    /*
-    background-color: rgba(var(--your-theme-color), 0.8); // Example: slightly transparent background
-    */
-    /* If your surveyData.backgroundTheme sets a solid color, the dots will be hidden by it.
-       Consider using rgba colors for main-content or ensuring your sections have transparent backgrounds. */
+    position: relative;
+    z-index: 1;
+    padding: var(--pad-m);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* This background-color will overlay the main content areas */
+    background-color: var(--bg-color);
+    /* Add a slight transparency for the background images to show through */
+    background-color: rgba(var(--bg-color-rgb), 0.85); /* Assuming you'll define --bg-color-rgb */
+    transition: background-color 0.3s ease;
 }
 
-/* If individual sections (Hero, XpCards, etc.) have their own backgrounds,
-   you might need to adjust their backgrounds to be semi-transparent or remove them if possible,
-   so the canvas dots can be seen through. */
-
-/* Also check individual components: */
-/* For instance, if Hero has a solid background: */
-/*
-.hero-section {
-    background-color: transparent !important; // Or rgba for transparency
+/* Ensure background color transparency for main content based on theme */
+html[data-theme="light"] .main-content {
+    background-color: rgba(240, 239, 238, 0.85); /* Use w-smoke RGB with transparency */
 }
-*/
-/* The same for XpCards, Projects, Edu, etc. */
+
+html[data-theme="dark"] .main-content {
+    background-color: rgba(31, 31, 30, 0.85); /* Use b-eerie RGB with transparency */
+}
+
+/* Add RGB variables to your :root in index.css for the rgba transparency to work */
+/* Example in index.css: */
+/* :root {
+    --w-smoke-rgb: 240, 239, 238;
+    --b-eerie-rgb: 31, 31, 30;
+} */
